@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "TriNetX Publication Toolkit"
+message: "If you use this software, please cite it using the metadata in this file."
+type: software
+authors:
+  - family-names: Novak
+    given-names: Daniel A.
+version: 1.0.0
+date-released: 2026-07-06
+license: MIT
+repository-code: "https://github.com/drdanovak/TriNetXPublicationToolKit-Publication-Ready"
+abstract: "A Streamlit-based toolkit for converting TriNetX Analytics exports into manuscript-ready real-world evidence outputs."
+keywords:
+  - TriNetX
+  - real-world evidence
+  - observational epidemiology
+  - Streamlit
+  - publication toolkit
