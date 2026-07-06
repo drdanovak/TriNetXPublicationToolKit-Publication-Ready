@@ -1,0 +1,18 @@
+Synthetic Outcome Measures of Association Table
+
+Cohort Statistics
+Cohort,Cohort Name,Patients in Cohort,Patients with Outcome,Risk
+1,Exposure cohort,1000,80,0.080
+2,Comparator cohort,1000,120,0.120
+
+Risk Difference
+Risk Difference,95 % CI Lower,95 % CI Upper,p
+-0.040,-0.068,-0.012,0.005
+
+Risk Ratio
+Risk Ratio,95 % CI Lower,95 % CI Upper,p
+0.667,0.509,0.874,0.003
+
+Odds Ratio
+Odds Ratio,95 % CI Lower,95 % CI Upper,p
+0.638,0.480,0.849,0.002
