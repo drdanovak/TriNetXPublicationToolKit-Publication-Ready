@@ -1,41 +1,34 @@
-name: Restore original app functionality
+name: Apply interface standardization to app files
 
 on:
   workflow_dispatch:
   push:
     paths:
       - ".github/workflows/restore_original_apps.yml"
+      - "scripts/apply_interface_standardization.py"
+      - "toolkit/interface_guidance.py"
 
 permissions:
   contents: write
 
 jobs:
-  restore:
+  standardize:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out publication-ready repository
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Clone original working toolkit
-        run: |
-          rm -rf /tmp/original-toolkit
-          git clone --depth 1 https://github.com/drdanovak/TriNetX-Publication-Toolkit.git /tmp/original-toolkit
+      - name: Patch individual Streamlit app files
+        run: python scripts/apply_interface_standardization.py
 
-      - name: Restore original Streamlit application files
-        run: |
-          rm -rf pages
-          cp /tmp/original-toolkit/Home.py Home.py
-          cp /tmp/original-toolkit/requirements.txt requirements.txt
-          cp -R /tmp/original-toolkit/pages .
-
-      - name: Commit restored app files
+      - name: Commit standardized app files
         run: |
           git config user.name "github-actions-bot"
           git config user.email "github-actions-bot@users.noreply.github.com"
-          git add Home.py requirements.txt pages
+          git add Home.py pages scripts/apply_interface_standardization.py toolkit/interface_guidance.py sitecustomize.py
           if git diff --cached --quiet; then
-            echo "No app restoration changes to commit."
+            echo "No interface standardization changes to commit."
           else
-            git commit -m "Restore original toolkit app functionality"
+            git commit -m "Apply interface standardization to individual app files"
             git push
           fi
