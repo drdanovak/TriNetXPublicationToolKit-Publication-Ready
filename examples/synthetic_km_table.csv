@@ -1,0 +1,18 @@
+Synthetic Outcome Kaplan-Meier Table
+
+Hazard Ratio
+Hazard Ratio,95 % CI Lower,95 % CI Upper,p
+0.72,0.58,0.91,0.006
+
+Log-Rank Test
+p
+0.004
+
+Time,Survival Probability Cohort 1,Survival Probability Cohort 2
+0,1.000,1.000
+30,0.985,0.975
+60,0.970,0.950
+90,0.955,0.930
+120,0.940,0.910
+180,0.915,0.875
+365,0.880,0.820
