@@ -1,0 +1,41 @@
+name: Restore original app functionality
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/restore_original_apps.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out publication-ready repository
+        uses: actions/checkout@v4
+
+      - name: Clone original working toolkit
+        run: |
+          rm -rf /tmp/original-toolkit
+          git clone --depth 1 https://github.com/drdanovak/TriNetX-Publication-Toolkit.git /tmp/original-toolkit
+
+      - name: Restore original Streamlit application files
+        run: |
+          rm -rf pages
+          cp /tmp/original-toolkit/Home.py Home.py
+          cp /tmp/original-toolkit/requirements.txt requirements.txt
+          cp -R /tmp/original-toolkit/pages .
+
+      - name: Commit restored app files
+        run: |
+          git config user.name "github-actions-bot"
+          git config user.email "github-actions-bot@users.noreply.github.com"
+          git add Home.py requirements.txt pages
+          if git diff --cached --quiet; then
+            echo "No app restoration changes to commit."
+          else
+            git commit -m "Restore original toolkit app functionality"
+            git push
+          fi
