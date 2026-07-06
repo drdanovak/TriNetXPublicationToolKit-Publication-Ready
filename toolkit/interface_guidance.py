@@ -111,6 +111,12 @@ def _guidance_for_path(path_like: str) -> Dict[str, str]:
 
 def render_standard_tool_instructions(path_like: str) -> None:
     """Render a visible, shared instruction block near the top of every app page."""
+    page_name = Path(path_like).name
+    state_key = "_trinetx_standard_instructions_rendered_" + page_name
+    if st.session_state.get(state_key, False):
+        return
+    st.session_state[state_key] = True
+
     guidance = _guidance_for_path(path_like)
     st.markdown("### Purpose")
     st.info(guidance["purpose"])
