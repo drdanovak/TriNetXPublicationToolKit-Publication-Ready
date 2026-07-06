@@ -22,56 +22,56 @@ TOOL_GUIDANCE: Dict[str, Dict[str, str]] = {
         "manual": "Not applicable.",
         "output": "Navigation guidance, export guidance, and workflow instructions.",
     },
-    "Effect_Size_Calculator": {
+    "Ratio_Effect_Size_and_Forest_Plot_Tool": {
         "tool": "Ratio Effect Size and Forest Plot Tool",
         "purpose": "Convert ratio estimates into approximate standardized effect-size summaries and forest-plot-ready rows.",
         "input": "Manual entry of risk ratios, odds ratios, hazard ratios, confidence intervals, and p-values from reviewed outputs.",
         "manual": "Supported. Enter one row per outcome, subgroup, or sensitivity analysis.",
         "output": "Approximate standardized effect summaries and forest-plot-ready tables.",
     },
-    "Power & Sample Size Adequacy Calculator": {
+    "Outcome_Interpretation_Tool": {
         "tool": "Outcome Interpretation Tool",
         "purpose": "Contextualize TriNetX outcome comparisons with power, E-values, absolute risk differences, and NNT/NNH.",
         "input": "TriNetX Measures of Association CSV or manual event/risk inputs, depending on the selected mode.",
         "manual": "Supported. Use manual mode when the export format is unavailable or when checking a single contrast.",
         "output": "Power, E-value, absolute risk difference, NNT/NNH, and interpretive summaries.",
     },
-    "Kaplan_Meier_Curve_Maker": {
+    "Kaplan_Meier_Curve_Generator": {
         "tool": "Kaplan-Meier Curve Generator",
         "purpose": "Create publication-ready time-to-event curves from TriNetX Kaplan-Meier exports.",
         "input": "TriNetX Kaplan-Meier CSV export.",
         "manual": "Not supported. Use the exported KM table to preserve time points and cohort survival probabilities.",
         "output": "Publication-ready Kaplan-Meier figure and image download.",
     },
-    "Forest_Plot_Generator": {
+    "Effect_Estimate_Forest_Plot_Generator": {
         "tool": "Effect Estimate Forest Plot Generator",
         "purpose": "Generate forest plots for RR, OR, HR, or other ratio estimates across outcomes, cohorts, or subgroups.",
         "input": "TriNetX Measures of Association files, Kaplan-Meier summaries, or manual estimates depending on selected input mode.",
         "manual": "Supported for curated estimates, subgroup summaries, or estimates drawn from several source files.",
         "output": "Forest plot and editable estimate table.",
     },
-    "Two-Cohort Outcome Bar Graphs": {
+    "Two-Cohort_Outcome_Bar_Chart_Generator": {
         "tool": "Two-Cohort Outcome Bar Chart Generator",
         "purpose": "Visualize absolute outcome risks for two cohorts to complement relative effect estimates.",
         "input": "TriNetX Measures of Association CSV or manual cohort risk table, depending on selected mode.",
         "manual": "Supported. Enter absolute risks as proportions or percentages according to the on-page instructions.",
         "output": "Two-cohort absolute-risk graph and source table.",
     },
-    "Love_Plot_Generator": {
+    "Covariate_Balance_Love_Plot_Generator": {
         "tool": "Covariate Balance Love Plot Generator",
         "purpose": "Evaluate and communicate covariate balance before and after propensity score matching.",
         "input": "TriNetX Baseline Patient Characteristics CSV with before/after standardized mean differences.",
         "manual": "Not primary. Upload the baseline export, then edit ordering, grouping, display labels, and plot settings in the interface.",
         "output": "Love plot, balance metrics, sample-retention diagnostics, variance-ratio diagnostics, and narrative balance summary.",
     },
-    "PSM_Table_Generator": {
+    "Baseline_Table_1_Generator": {
         "tool": "Baseline Table 1 Generator",
         "purpose": "Create a journal-style Table 1 from TriNetX baseline characteristics before and after propensity score matching.",
         "input": "TriNetX Baseline Patient Characteristics CSV.",
         "manual": "Not primary. Upload the baseline export, then edit labels, sections, ordering, and final table text inside the app.",
         "output": "Journal-style Table 1 with before/after matching columns and DOCX/HTML/CSV exports.",
     },
-    "STROBE_Assessment_Tool": {
+    "STROBE_Reporting_Checklist": {
         "tool": "STROBE Reporting Checklist",
         "purpose": "Assess reporting completeness for observational TriNetX studies before submission.",
         "input": "Manual checklist review based on the manuscript draft, methods notes, and TriNetX study design.",
@@ -85,7 +85,7 @@ TOOL_GUIDANCE: Dict[str, Dict[str, str]] = {
         "manual": "Limited. Upload is preferred; use in-app editing to clean labels and final table wording.",
         "output": "Manuscript-ready outcome table with counts, risks, estimates, confidence intervals, and p-values.",
     },
-    "Multiple_Comparison_Calculator": {
+    "Multiple_Comparisons_Correction_Tool": {
         "tool": "Multiple Comparisons Correction Tool",
         "purpose": "Apply transparent multiplicity corrections to families of TriNetX outcome p-values.",
         "input": "TriNetX Measures of Association CSV files or manually entered p-values.",
