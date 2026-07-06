@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict
 
 import streamlit as st
 
@@ -110,13 +110,12 @@ def _guidance_for_path(path_like: str) -> Dict[str, str]:
 
 
 def render_standard_tool_instructions(path_like: str) -> None:
-    """Render a visible, shared instruction block near the top of every app page."""
-    page_name = Path(path_like).name
-    state_key = "_trinetx_standard_instructions_rendered_" + page_name
-    if st.session_state.get(state_key, False):
-        return
-    st.session_state[state_key] = True
+    """Render a visible, shared instruction block near the top of every app page.
 
+    Streamlit rebuilds the page on every interaction, so this function must render
+    every run. Do not gate this behind session_state; otherwise the instructions
+    appear once and then disappear after the next widget interaction or rerun.
+    """
     guidance = _guidance_for_path(path_like)
     st.markdown("### Purpose")
     st.info(guidance["purpose"])
@@ -127,4 +126,6 @@ def render_standard_tool_instructions(path_like: str) -> None:
     with st.expander("Step-by-step workflow", expanded=False):
         for idx, step in enumerate(STANDARD_STEPS, start=1):
             st.markdown(f"{idx}. {step}")
-    st.caption("Upload controls are standardized to appear in the main page area. Preserve the raw TriNetX export and verify every manuscript-facing value against the source export.")
+    st.caption(
+        "Upload controls are standardized to appear in the main page area. Preserve the raw TriNetX export and verify every manuscript-facing value against the source export."
+    )
