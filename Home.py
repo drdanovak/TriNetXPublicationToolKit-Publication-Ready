@@ -33,16 +33,16 @@ st.header("Quick tool chooser")
 
 chooser = pd.DataFrame(
     [
-        ["Create a Table 1 before and after propensity score matching", "7. PSM Table Generator", "Baseline Patient Characteristics CSV"],
-        ["Assess covariate balance after matching", "6. Love Plot Generator", "Baseline Patient Characteristics CSV"],
-        ["Create a Table 2-style outcomes table", "9. Outcomes Table Generator", "Measures of Association and/or Kaplan-Meier CSVs"],
-        ["Create a forest plot of RR, OR, or HR estimates", "4. Forest Plot Generator", "MOA/KM exports or prepared effect-estimate table"],
-        ["Graph absolute risks for two cohorts", "5. Two-Cohort Outcome Bar Graphs", "MOA table or graph exports"],
-        ["Create a Kaplan-Meier survival curve", "3. Kaplan-Meier Curve Maker", "Kaplan-Meier CSV export"],
-        ["Convert ratios into approximate standardized effect sizes", "1. Effect Size Calculator", "Manual ratio, CI, and p-value entry"],
-        ["Estimate power, E-values, risk differences, and NNT/NNH", "2. Power, E-value, and NNT/NNH", "Outcome CSVs or manual risk table"],
-        ["Correct p-values across many tested outcomes", "10. Multiple Comparisons Correction Tool", "MOA exports or p-value table"],
-        ["Check STROBE reporting completeness", "8. STROBE Assessment Tool", "Your manuscript draft"],
+        ["Create a Table 1 before and after propensity score matching", "Baseline Table 1 Generator", "Baseline Patient Characteristics CSV"],
+        ["Assess covariate balance after matching", "Covariate Balance Love Plot Generator", "Baseline Patient Characteristics CSV"],
+        ["Create a Table 2-style outcomes table", "Outcomes Table Generator", "Measures of Association and/or Kaplan-Meier CSVs"],
+        ["Create a forest plot of RR, OR, or HR estimates", "Effect Estimate Forest Plot Generator", "MOA/KM exports or prepared effect-estimate table"],
+        ["Graph absolute risks for two cohorts", "Two-Cohort Outcome Bar Chart Generator", "MOA table or graph exports"],
+        ["Create a Kaplan-Meier survival curve", "Kaplan-Meier Curve Generator", "Kaplan-Meier CSV export"],
+        ["Convert ratios into approximate standardized effect sizes", "Ratio Effect Size and Forest Plot Tool", "Manual ratio, CI, and p-value entry"],
+        ["Estimate power, E-values, risk differences, and NNT/NNH", "Outcome Interpretation Tool", "Outcome CSVs or manual risk table"],
+        ["Correct p-values across many tested outcomes", "Multiple Comparisons Correction Tool", "MOA exports or p-value table"],
+        ["Check STROBE reporting completeness", "STROBE Reporting Checklist", "Your manuscript draft"],
     ],
     columns=["Goal", "Use this tool", "Primary input"],
 )
@@ -54,22 +54,22 @@ st.markdown("""
 1. **Export from TriNetX.** For most retrospective studies, download the Baseline Patient Characteristics table,
 the Measures of Association table for each outcome, and Kaplan-Meier tables when time-to-event results are part of the analysis.
 
-2. **Prepare baseline outputs.** Use the PSM Table Generator for the manuscript Table 1 and the Love Plot Generator
+2. **Prepare baseline outputs.** Use the Baseline Table 1 Generator for the manuscript Table 1 and the Covariate Balance Love Plot Generator
 to document balance before and after matching.
 
-3. **Prepare outcome outputs.** Use the Outcomes Table Generator for the main outcomes table. Use the Forest Plot
-Generator for multi-outcome effect estimates, the Two-Cohort Bar Graphs tool for absolute risks, and the Kaplan-Meier
-Curve Maker for survival curves.
+3. **Prepare outcome outputs.** Use the Outcomes Table Generator for the main outcomes table. Use the Effect Estimate Forest Plot
+Generator for multi-outcome effect estimates, the Two-Cohort Outcome Bar Chart Generator for absolute risks, and the Kaplan-Meier
+Curve Generator for survival curves.
 
-4. **Run rigor checks.** Use the Power/E-value/NNT tool for interpretation, the Multiple Comparisons tool when many
-outcomes were tested, and the STROBE tool before submission.
+4. **Run rigor checks.** Use the Outcome Interpretation Tool for power, E-values, risk differences, and NNT/NNH; use the Multiple Comparisons Correction Tool when many
+outcomes were tested; and use the STROBE Reporting Checklist before submission.
 
 5. **Verify before submission.** Compare every final table and figure against the original TriNetX export.
 """)
 
 st.header("Detailed instructions for each tool")
 
-with st.expander("1. Effect Size Calculator"):
+with st.expander("Ratio Effect Size and Forest Plot Tool"):
     st.markdown("""
 **Use when:** You have risk ratios, odds ratios, or hazard ratios and want approximate standardized effect sizes or a simple manually entered forest plot.
 
@@ -82,7 +82,7 @@ with st.expander("1. Effect Size Calculator"):
 **Check:** Treat the standardized effect size as an interpretive aid, not the primary TriNetX result.
 """)
 
-with st.expander("2. Power, E-value, and NNT/NNH"):
+with st.expander("Outcome Interpretation Tool"):
     st.markdown("""
 **Use when:** You want to contextualize outcome comparisons by estimating power, required sample size, E-values, risk differences, and NNT/NNH.
 
@@ -95,7 +95,7 @@ with st.expander("2. Power, E-value, and NNT/NNH"):
 **Check:** These are approximate calculations for interpretation and sensitivity analysis. Do not describe them as TriNetX-native model estimates.
 """)
 
-with st.expander("3. Kaplan-Meier Curve Maker"):
+with st.expander("Kaplan-Meier Curve Generator"):
     st.markdown("""
 **Use when:** You need a clean survival curve from a TriNetX Kaplan-Meier export.
 
@@ -108,7 +108,7 @@ with st.expander("3. Kaplan-Meier Curve Maker"):
 **Check:** Make sure the y-axis label matches the plotted quantity, such as survival probability or event-free probability.
 """)
 
-with st.expander("4. Forest Plot Generator"):
+with st.expander("Effect Estimate Forest Plot Generator"):
     st.markdown("""
 **Use when:** You want to compare multiple outcomes using RR, OR, or HR estimates with confidence intervals.
 
@@ -121,7 +121,7 @@ with st.expander("4. Forest Plot Generator"):
 **Check:** Avoid mixing RR, OR, and HR in the same visual unless the title and column label explicitly state that mixed effect estimates are being shown.
 """)
 
-with st.expander("5. Two-Cohort Outcome Bar Graphs"):
+with st.expander("Two-Cohort Outcome Bar Chart Generator"):
     st.markdown("""
 **Use when:** Absolute risks are easier to communicate than ratios.
 
@@ -134,7 +134,7 @@ with st.expander("5. Two-Cohort Outcome Bar Graphs"):
 **Check:** Verify risk percentages and confidence intervals against the source export, especially when Wilson intervals are calculated from event counts.
 """)
 
-with st.expander("6. Love Plot Generator"):
+with st.expander("Covariate Balance Love Plot Generator"):
     st.markdown("""
 **Use when:** You need to show covariate balance before and after propensity score matching.
 
@@ -147,7 +147,7 @@ with st.expander("6. Love Plot Generator"):
 **Check:** If important covariates remain above the SMD threshold, address that in the results, limitations, or sensitivity-analysis plan.
 """)
 
-with st.expander("7. PSM Table Generator"):
+with st.expander("Baseline Table 1 Generator"):
     st.markdown("""
 **Use when:** You need a journal-style Table 1 showing baseline characteristics before and after propensity score matching.
 
@@ -160,7 +160,7 @@ with st.expander("7. PSM Table Generator"):
 **Check:** Confirm that the table includes the variables used for matching and that post-match SMDs support the balance claim.
 """)
 
-with st.expander("8. STROBE Assessment Tool"):
+with st.expander("STROBE Reporting Checklist"):
     st.markdown("""
 **Use when:** You are preparing an observational TriNetX manuscript for submission and want a structured reporting checklist.
 
@@ -173,7 +173,7 @@ with st.expander("8. STROBE Assessment Tool"):
 **Check:** STROBE assesses reporting completeness. It does not by itself establish that the design or analysis is methodologically sufficient.
 """)
 
-with st.expander("9. Outcomes Table Generator"):
+with st.expander("Outcomes Table Generator"):
     st.markdown("""
 **Use when:** You need a clean manuscript-style outcomes table from multiple TriNetX outcome files.
 
@@ -186,7 +186,7 @@ with st.expander("9. Outcomes Table Generator"):
 **Check:** If MOA and KM outputs are combined, make the effect-estimate column label explicit because risk ratios and hazard ratios answer different questions.
 """)
 
-with st.expander("10. Multiple Comparisons Correction Tool"):
+with st.expander("Multiple Comparisons Correction Tool"):
     st.markdown("""
 **Use when:** A study tests many outcomes and you need adjusted p-values.
 
@@ -203,10 +203,10 @@ st.header("TriNetX export guide")
 
 exports = pd.DataFrame(
     [
-        ["Baseline Patient Characteristics CSV", "Table 1 and balance diagnostics", "PSM Table Generator; Love Plot Generator"],
-        ["Measures of Association CSV", "Risks, RR/OR, p-values, bar graphs, outcomes tables, multiple comparisons", "Outcomes Table Generator; Forest Plot Generator; Two-Cohort Bar Graphs; Multiple Comparisons; Power/E-value/NNT"],
-        ["Kaplan-Meier CSV", "Survival curves, HRs, log-rank p-values, time-to-event outcomes", "Kaplan-Meier Curve Maker; Outcomes Table Generator; Forest Plot Generator"],
-        ["Prepared manual table", "Curated values from outside TriNetX", "Effect Size Calculator; Forest Plot Generator; Multiple Comparisons"],
+        ["Baseline Patient Characteristics CSV", "Table 1 and balance diagnostics", "Baseline Table 1 Generator; Covariate Balance Love Plot Generator"],
+        ["Measures of Association CSV", "Risks, RR/OR, p-values, bar graphs, outcomes tables, multiple comparisons", "Outcomes Table Generator; Effect Estimate Forest Plot Generator; Two-Cohort Outcome Bar Chart Generator; Multiple Comparisons Correction Tool; Outcome Interpretation Tool"],
+        ["Kaplan-Meier CSV", "Survival curves, HRs, log-rank p-values, time-to-event outcomes", "Kaplan-Meier Curve Generator; Outcomes Table Generator; Effect Estimate Forest Plot Generator"],
+        ["Prepared manual table", "Curated values from outside TriNetX", "Ratio Effect Size and Forest Plot Tool; Effect Estimate Forest Plot Generator; Multiple Comparisons Correction Tool"],
     ],
     columns=["TriNetX export", "Use for", "Compatible tools"],
 )
