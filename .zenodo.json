@@ -1,0 +1,19 @@
+{
+  "title": "TriNetX Publication Toolkit",
+  "description": "A Streamlit-based toolkit for converting TriNetX Analytics exports into manuscript-ready real-world evidence outputs.",
+  "creators": [
+    {
+      "name": "Novak, Daniel A.",
+      "affiliation": "University of California, Riverside School of Medicine"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "TriNetX",
+    "real-world evidence",
+    "observational epidemiology",
+    "clinical informatics",
+    "Streamlit"
+  ],
+  "upload_type": "software"
+}
