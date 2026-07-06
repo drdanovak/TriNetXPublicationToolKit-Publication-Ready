@@ -11,6 +11,7 @@ The TriNetX Publication Toolkit is designed for clinical informatics, real-world
 This version consolidates the earlier toolkit into a more coherent software product:
 
 - A common Streamlit interface across all tools.
+- Clear, standardized tool names without author-branded labels.
 - Shared UI components for headers, workflow steps, cautions, export blocks, and verification reminders.
 - Shared parsers for TriNetX Measures of Association, Kaplan-Meier, and Baseline Patient Characteristics exports.
 - Consistent page configuration, sidebar organization, terminology, and download naming conventions.
@@ -21,27 +22,20 @@ This version consolidates the earlier toolkit into a more coherent software prod
 
 ## Tools
 
-1. Effect Size Calculator
-2. Power, E-value, and NNT/NNH Tool
-3. Kaplan-Meier Curve Maker
-4. Forest Plot Generator
-5. Two-Cohort Outcome Bar Graphs
-6. Love Plot Generator
-7. PSM Table Generator
-8. STROBE Assessment Tool
+1. Ratio Effect Size and Forest Plot Tool
+2. Outcome Interpretation Tool
+3. Kaplan-Meier Curve Generator
+4. Effect Estimate Forest Plot Generator
+5. Two-Cohort Outcome Bar Chart Generator
+6. Covariate Balance Love Plot Generator
+7. Baseline Table 1 Generator
+8. STROBE Reporting Checklist
 9. Outcomes Table Generator
 10. Multiple Comparisons Correction Tool
 
 ## Quick start
 
-```bash
-git clone https://github.com/drdanovak/TriNetXPublicationToolKit-Publication-Ready.git
-cd TriNetXPublicationToolKit-Publication-Ready
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
-pip install -r requirements.txt
-streamlit run Home.py
-```
+Install dependencies with `pip install -r requirements.txt`, then run `streamlit run Home.py` from the repository root.
 
 ## Expected inputs
 
@@ -66,9 +60,7 @@ All generated tables and figures should be checked against the original TriNetX 
 
 ## Testing
 
-```bash
-pytest
-```
+Run `pytest` from the repository root.
 
 ## License
 
@@ -76,4 +68,4 @@ MIT License. See `LICENSE`.
 
 ## Suggested citation
 
-Novak D. TriNetX Publication Toolkit: A Streamlit-based workflow for converting TriNetX exports into manuscript-ready real-world evidence outputs. Version 1.0.0.
+TriNetX Publication Toolkit: A Streamlit-based workflow for converting TriNetX exports into manuscript-ready real-world evidence outputs. Version 1.0.0.
