@@ -444,6 +444,13 @@ def make_love_plot(
 def main():
     st.set_page_config(page_title="TriNetX Love Plot Generator", layout="wide")
     st.title("TriNetX Love Plot Generator")
+
+    try:
+        from toolkit.interface_guidance import render_standard_tool_instructions
+        render_standard_tool_instructions(__file__)
+    except Exception:
+        pass
+
     st.write(
         "Upload a TriNetX **Baseline Patient Characteristics** CSV from a "
         "propensity score–matched analysis to generate a Love plot and balance metrics."

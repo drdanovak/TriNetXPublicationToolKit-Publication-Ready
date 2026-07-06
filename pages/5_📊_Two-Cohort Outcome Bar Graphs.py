@@ -33,6 +33,13 @@ CANONICAL_COLS = [
 st.set_page_config(page_title="2-Cohort Outcome Bar Chart", layout="centered")
 
 st.title("Two-Cohort Outcome Bar Chart")
+
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
 st.markdown("""
 Enter outcome risks manually or upload TriNetX Measures of Association exports.  
 This version imports the standard **MOA table** format with a `Cohort Statistics` section, automatically calculates cohort risk percentages and 95% confidence intervals for the risk estimates, and includes customizable axis labels and text-collision avoidance.
@@ -426,7 +433,7 @@ if "last_import_summary" not in st.session_state:
 
 # ---------- IMPORT CONTROLS ----------
 st.sidebar.header("Import TriNetX Data Sheets")
-uploaded_files = st.sidebar.file_uploader(
+uploaded_files = st.file_uploader(
     "Upload one or more MOA table or graph exports",
     type=["csv", "xlsx", "xls"],
     accept_multiple_files=True,

@@ -7,6 +7,13 @@ from scipy.stats import norm
 st.set_page_config(layout="wide", page_title="TriNetX Outcomes Interpretation Tool")
 st.title("TriNetX Outcomes: Power, E-value, NNT/NNH, and Standardized Effect Size")
 
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
+
 st.caption(
     "Upload TriNetX outcome CSVs or enter values manually. The tool separates statistical power, "
     "E-value sensitivity, absolute clinical impact, and standardized effect magnitude so users can interpret each finding correctly."

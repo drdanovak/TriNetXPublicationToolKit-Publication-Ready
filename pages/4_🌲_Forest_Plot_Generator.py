@@ -15,6 +15,13 @@ plt.style.use("default")
 st.set_page_config(layout="wide")
 st.title("🌲 Novak's TriNetX Forest Plot Generator")
 
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
+
 required_cols = [
     "Outcome",
     "Risk, Odds, or Hazard Ratio",

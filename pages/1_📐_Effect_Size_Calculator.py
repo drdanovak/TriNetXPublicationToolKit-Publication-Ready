@@ -7,6 +7,13 @@ import io
 
 st.set_page_config(layout="wide")
 st.title("Novak's TriNetX Effect Size Calculator and Forest Plot Generator")
+
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
 st.markdown("Calculate effect sizes from Risk Ratios, Odds Ratios, or Hazard Ratios (TriNetX outcomes), add p-values, confidence intervals, and create publication-quality forest plots—all in one app.")
 
 # --- Sidebar options ---

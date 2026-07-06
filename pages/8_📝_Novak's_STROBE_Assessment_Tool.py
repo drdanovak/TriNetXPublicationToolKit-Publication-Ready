@@ -274,6 +274,13 @@ if "expand_states" not in st.session_state or len(st.session_state.expand_states
 st.set_page_config(page_title="STROBE Self-Assessment", layout="wide")
 st.title("📝 STROBE Self-Assessment Tool for TriNetX Projects")
 
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
+
 # --- Toolbar ---
 col1, col2 = st.columns([1,2])
 with col1:

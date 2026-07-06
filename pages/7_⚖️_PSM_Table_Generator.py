@@ -24,6 +24,13 @@ except Exception:
 st.set_page_config(page_title="TriNetX Table 1 Generator", layout="wide")
 st.title("TriNetX Baseline Patient Characteristics → Journal-Style Table 1")
 
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
+
 
 REQUIRED_COLUMNS = [
     "Characteristic ID",

@@ -9,6 +9,13 @@ st.set_page_config(
 )
 
 st.title("TriNetX Publication Toolkit")
+
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
 st.caption("A front page for selecting the right tool, preparing the right export, and producing manuscript-ready outputs.")
 
 st.markdown("""

@@ -296,6 +296,13 @@ def default_manual_column_selection(df: pd.DataFrame) -> Tuple[Optional[str], Op
 
 
 st.title("TriNetX Multiple Comparisons Correction Tool")
+
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
 st.write(
     "Upload raw TriNetX Measures of Association tables or a simple table of outcomes and p-values. "
     "The app will apply Bonferroni, Holm–Bonferroni, Benjamini–Hochberg, and Benjamini–Yekutieli corrections, "

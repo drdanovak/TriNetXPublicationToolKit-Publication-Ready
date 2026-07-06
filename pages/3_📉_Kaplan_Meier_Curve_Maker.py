@@ -11,6 +11,13 @@ from lifelines.statistics import logrank_test
 
 # Title and Instructions
 st.title("Novak's TriNetX Kaplan-Meier Survival Curve Viewer")
+
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
 st.markdown("Upload your Kaplan-Meier CSV output. Customize the visualization and download a publication-ready figure.")
 
 # Step 1: File Upload

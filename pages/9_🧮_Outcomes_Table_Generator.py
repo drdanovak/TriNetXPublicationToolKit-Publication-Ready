@@ -758,6 +758,13 @@ def records_to_plain_dataframe(records: List[Dict[str, Any]], columns: List[str]
 # -----------------------------
 
 st.title("Novak's TriNetX Outcomes Table 2 Generator")
+
+try:
+    from toolkit.interface_guidance import render_standard_tool_instructions
+    render_standard_tool_instructions(__file__)
+except Exception:
+    pass
+
 st.write(
     "Upload one or more TriNetX Measures of Association or Kaplan-Meier CSV exports. "
     "The app will automatically detect the export type and combine the files into a single manuscript-style outcomes table."
